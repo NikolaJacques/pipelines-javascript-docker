@@ -1,16 +1,16 @@
 trigger:
  - main
 
- pool:
- vmImage: local
+pool:
+  vmImage: local
 
- variables:
- repositoryName: 'nikolajacques/learning'
+variables:
+  repositoryName: 'nikolajacques/learning'
 
- steps:
+steps:
  - task: Docker@2
- inputs:
- containerRegistry: 'docker-hub-connection-learning'
- repository: $(repositoryName)
- command: 'buildAndPush'
- Dockerfile: '**/Dockerfile'
+   inputs:
+        containerRegistry: 'docker-hub-connection-learning'
+        repository: $(repositoryName)
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
